@@ -1,6 +1,5 @@
-import { DataAPIClient, Db } from "@datastax/astra-db-ts";
+import { DataAPIClient } from "@datastax/astra-db-ts";
 import { PuppeteerWebBaseLoader } from "@langchain/community/document_loaders/web/puppeteer";
-import OpenAI from "openai";
 import "dotenv/config";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { GoogleGenAI } from "@google/genai";
@@ -14,13 +13,7 @@ const {
   ASTRA_DB_API_ENDPOINT,
   ASTRA_DB_COLLECTION,
   ASTRA_DB_NAMESPACE,
-  OPEN_ROUTER_API_KEY,
 } = process.env;
-
-const openai = new OpenAI({
-  baseURL: "https://openrouter.ai/api/v1",
-  apiKey: OPEN_ROUTER_API_KEY,
-});
 
 const f1Data = [
   "https://en.wikipedia.org/wiki/Formula_One",
